@@ -9,6 +9,7 @@ Class_Clarity helps parents organize and visualize events and important dates se
 
 The following diagram illustrates the flow of data in Class_Clarity:
 
+```
   +---------------------+
   |      Gmail API      |
   |  (Teacher Emails)   |
@@ -60,7 +61,7 @@ The following diagram illustrates the flow of data in Class_Clarity:
   |   Parent / User     |
   |    Views Events     |
   +---------------------+
-
+```
 Legend:
 - Vertical flow represents data pipeline.
 - Backend converts raw emails → structured JSON events.
