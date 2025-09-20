@@ -1,0 +1,5 @@
+# Frontend configuration
+backend_url: "http://127.0.0.1:8000"
+default_user_context: "I want my child to be well-rounded and excel in academics and sports."
+default_start_date: null  # will use today if null
+default_end_date: null    # will use today if null
