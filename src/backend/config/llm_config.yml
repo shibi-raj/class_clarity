@@ -5,7 +5,7 @@ model: gemma3
 max_tokens: 1024
 
 # Temperature controls randomness: 0 = deterministic, 1 = creative
-temperature: 0.2
+temperature: 0.0
 
 # Optional: stop sequences if you want to truncate output automatically
 stop_sequences: ["\n\n"]
