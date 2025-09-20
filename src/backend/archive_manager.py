@@ -79,3 +79,27 @@ def load_archived_emails(day: Optional[datetime.date] = None) -> Dict[str, Any]:
         return {}
     with open(archive_json_path, "r", encoding="utf-8") as f:
         return json.load(f)
+    
+def load_email_window(start_date: datetime.date, end_date: Optional[datetime.date] = None) -> Dict[str, Any]:
+    """
+    Load archived emails between start_date (inclusive) and end_date (exclusive).
+    If end_date is None, defaults to today + 1 day.
+    """
+    if end_date is None:
+        end_date = datetime.date.today() + datetime.timedelta(days=1)
+
+    all_emails = []
+
+    current_date = start_date
+    while current_date < end_date:
+        archive_json_path = ARCHIVE_ROOT / current_date.isoformat() / "archive.json"
+
+        # Only read existing archives
+        if archive_json_path.exists():
+            with open(archive_json_path, "r", encoding="utf-8") as f:
+                day_archive = json.load(f)
+                all_emails.extend(day_archive.get("emails", []))
+
+        current_date += datetime.timedelta(days=1)
+
+    return {"emails": all_emails}
